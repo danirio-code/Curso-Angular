@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="d-flex flex-column gap-4 align-items-center">
+    <h1>{{ title }}</h1>
+    
+    <div>
+      <form>
+        <label for="numero1">Primer número: </label>
+        <br>
+        <input type="number" name="numero1" id="numero1" [(ngModel)]="numero1">
+      
+        <br><br>
+      
+        <label for="numero2">Segundo número: </label>
+        <br>
+        <input type="number" name="numero2" id="numero2" [(ngModel)]="numero2">
+      
+        <br><br>
+      
+        <div>
+          <button class="btn btn-primary m-1" (click)="sumar()">SUMAR</button>
+        
+          <button class="btn btn-warning m-1" (click)="restar()">RESTAR</button>
+        
+          <button class="btn btn-secondary m-1" (click)="multiplicar()">MULTIPLICAR</button>
+        </div>
+      
+      </form>
+    </div>
+    
+    <h4>Resultado: {{ resultado }}</h4>
+  </div>
+
+</div>
