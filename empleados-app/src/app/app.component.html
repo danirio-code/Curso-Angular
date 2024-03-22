@@ -1,26 +1,29 @@
+<h1 class="mt-5 text-center">Práctica Empleados</h1>
 <div class="container d-flex flex-row mt-5">
-  <div class="table table-striped w-50">
-    <thead>
-      <tr class="table-primary">
-        <th scope="col">ID</th>
-        <th scope="col">NOMBRE</th>
-        <th scope="col">APELLIDO</th>
-        <th scope="col">CARGO</th>
-        <th scope="col">SALARIO</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let empleado of empleados; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td>{{ empleado.nombre }}</td>
-        <td>{{ empleado.apellido }}</td>
-        <td>{{ empleado.cargo }}</td>
-        <td>{{ empleado.salario }}</td>
-      </tr>
-    </tbody>
-    <caption>Lista de Empleados W2M</caption>
+  <div class="w-75 mt-3">
+    <table class="table table-striped w-75">
+      <thead>
+        <tr class="table-primary">
+          <th scope="col">ID</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">APELLIDO</th>
+          <th scope="col">CARGO</th>
+          <th scope="col">SALARIO</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let empleado of empleados; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.apellido }}</td>
+          <td>{{ empleado.cargo }}</td>
+          <td>{{ empleado.salario }}</td>
+        </tr>
+      </tbody>
+      <caption>Lista de Empleados W2M</caption>
+    </table>
   </div>
-  <div>
+  <div class="w-25">
     <form class="ms-5 d-flex flex-row align-items-center">
       <div class="d-flex flex-column">
         <div>
@@ -49,4 +52,7 @@
       </div>
     </form>
   </div>
+</div>
+<div class="api">
+  {{ apiContent }}
 </div>
