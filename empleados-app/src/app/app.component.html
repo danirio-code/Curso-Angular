@@ -1,7 +1,9 @@
 <h1 class="mt-5 text-center">Práctica Empleados</h1>
 <div class="container d-flex flex-row mt-5">
+  <!-- TABLA EMPLEADOS -->
   <div class="w-75 mt-3">
     <table class="table table-striped w-75">
+      <caption>Lista de Empleados W2M</caption>
       <thead>
         <tr class="table-primary">
           <th scope="col">ID</th>
@@ -20,9 +22,9 @@
           <td>{{ empleado.salario }}</td>
         </tr>
       </tbody>
-      <caption>Lista de Empleados W2M</caption>
     </table>
   </div>
+  <!-- FORMULARIO -->
   <div class="w-25">
     <form class="ms-5 d-flex flex-row align-items-center">
       <div class="d-flex flex-column">
@@ -53,6 +55,12 @@
     </form>
   </div>
 </div>
-<div class="api">
-  {{ apiContent }}
+<!-- PROBANDO COMUNICACIÓN ENTRE COMPONENETES -->
+<div class="container">
+  <h4 class="text-info">Prueba comunicación entre comoponente Padre &rarr; Hijo e Hijo &rarr; Padre</h4>
+  <app-empleado-hijo *ngFor="let empleado of empleados; let i = index" [empleadoFilaTabla]="empleado" [indiceFilaTabla]="i"></app-empleado-hijo>
 </div>
+
+<!-- <div class="api">
+  {{ apiContent }}
+  </div> -->
