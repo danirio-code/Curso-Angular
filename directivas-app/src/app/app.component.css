@@ -12,3 +12,9 @@ h1 {
 form {
   width: 15vw;
 }
+
+.paraDirectores {
+  color: red;
+  font-weight: bold;
+  text-decoration: underline;
+}

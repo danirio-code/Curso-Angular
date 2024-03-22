@@ -16,6 +16,8 @@ export class AppComponent {
 
   registrado = false
 
+  cargo = ''
+
   entradas: { titulo: string }[]
 
   constructor() {
