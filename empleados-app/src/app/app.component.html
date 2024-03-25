@@ -63,7 +63,33 @@
 
 <div class="api container">
   <h2>Pruebas RXJS: 'subscribe' desde el html</h2>
-  <div *ngIf="apiContent | async as Pokemon">
+  <h3>Pokemon Api</h3>
+  <div *ngIf="pokemonApiContent | async as Pokemon">
     {{ Pokemon }}
   </div>
+
+  <div class="d-flex flex-row">
+    <div *ngIf="usersApiContent | async as Users" class="w-50 border-end border-primary">
+      <h3>Ejercicio Carlos 'users api'</h3>
+      <div *ngFor="let user of Users; let i = index">
+        <h6>Posición {{ i + 1 }}:</h6>
+        <div class="ms-4">
+          <p>userId: {{ user.userId }}</p>
+          <p>id: {{ user.id }}</p>
+          <p>title: {{ user.title }}</p>
+          <p>completed: {{ user.completed ? 'Sí' : 'No' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ms-4 w-50">
+      <h3>Ejercicio Carlos 'merge peticiones'</h3>
+      <div *ngIf="mergedObservables | async as Observables">
+        <p>API 1: {{Observables.api_1 | json}}</p>
+        <p>API 2: {{Observables.api_2 | json}}</p>
+      </div>
+    </div>
+
+  </div>
+  
 </div>

@@ -3,6 +3,7 @@ import { Component } from '@angular/core'
 import { Observable } from 'rxjs'
 import { AppService } from './app.service'
 import { Empleado } from './empleado.model'
+import { User } from './data/users.data'
 // import { Pokemon } from './pokemon-data'
 
 @Component({
@@ -20,9 +21,17 @@ export class AppComponent {
     salario: 0,
   }
 
-  apiContent: Observable<String> = this.appService.peticionApi()
+  pokemonApiContent: Observable<String> = this.appService.peticionApiPokemon()
 
   pokemonName = ''
+
+  usersApiContent: Observable<User[]> = this.appService.peticionApiUsers()
+
+  mergedObservables = this.appService.mergeObservables()
+
+  // peticionApi1: Observable<User> = this.appService.peticionApi1()
+
+  // peticionApi2: Observable<User> = this.appService.peticionApi2()
 
   empleados: Empleado[] = [
     new Empleado('Dani', 'Río', 'Desarrollador Junior', 1000),
@@ -38,7 +47,7 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-    // this.getApiContent()
+    this.mergeObservables()
 
     // EXPLICACION DE CARLOS SOBRE COMO FUNCIONA RXJS
     // this.existe.subscribe(data => console.log(data))
@@ -67,4 +76,8 @@ export class AppComponent {
   //       console.log(this.pokemonName)
   //     })
   // }
+
+  mergeObservables(): void {
+    this.appService.mergeObservables().subscribe(data => console.log(data))
+  }
 }
