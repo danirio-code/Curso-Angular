@@ -3,14 +3,14 @@ import {
   Observable, delay, forkJoin, map, tap,
 } from 'rxjs'
 import { HttpClient } from '@angular/common/http'
-import { Pokemon } from './data/pokemon-data'
-import { User, UserFork, UserPlus } from './data/users.data'
+import { Pokemon } from '../data/pokemon-data'
+import { User, UserFork, UserPlus } from '../data/users-data'
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class AppService {
+export class HomeService {
   // private URL = 'https://www.newblue.es/i18n/es_ES' -> Problema CORS
 
   private URL_POKEMON = 'https://pokeapi.co/api/v2/pokemon/ditto'
