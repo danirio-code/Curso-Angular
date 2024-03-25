@@ -56,12 +56,12 @@
   </div>
 </div>
 <!-- PROBANDO COMUNICACIÓN ENTRE COMPONENETES -->
-<div class="container">
+<div class="container border-bottom border-warning mb-4">
   <h4 class="text-info">Prueba comunicación entre comoponente Padre &rarr; Hijo e Hijo &rarr; Padre</h4>
   <app-empleado-hijo *ngFor="let empleado of empleados; let i = index" [empleadoFilaTabla]="empleado" [indiceFilaTabla]="i"></app-empleado-hijo>
 </div>
 
-<div class="api container">
+<div class="api container mt-5">
   <h2>Pruebas RXJS: 'subscribe' desde el html</h2>
   <h3>Pokemon Api</h3>
   <div *ngIf="pokemonApiContent | async as Pokemon">

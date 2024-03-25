@@ -1,9 +1,10 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 // import { BehaviorSubject, timer  } from 'rxjs'
 import { Observable } from 'rxjs'
 import { AppService } from './app.service'
 import { Empleado } from './empleado.model'
 import { User } from './data/users.data'
+import { DataService } from './data.service'
 // import { Pokemon } from './pokemon-data'
 
 @Component({
@@ -11,7 +12,7 @@ import { User } from './data/users.data'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Listado de Empleados'
 
   empleado: Empleado = {
@@ -29,22 +30,16 @@ export class AppComponent {
 
   mergedObservables = this.appService.mergeObservables()
 
-  // peticionApi1: Observable<User> = this.appService.peticionApi1()
-
-  // peticionApi2: Observable<User> = this.appService.peticionApi2()
-
-  empleados: Empleado[] = [
-    new Empleado('Dani', 'Río', 'Desarrollador Junior', 1000),
-    new Empleado('María', 'González', 'Diseñador', 2000),
-    new Empleado('Felipeti', 'Sánchez', 'Maquetador', 1500),
-    new Empleado('Juan', 'Pérez', 'Desarrollador Senior', 3000),
-  ]
+  empleados: Empleado[]
 
   // existe: BehaviorSubject<string> = new BehaviorSubject('true')
 
   constructor(
     public appService: AppService,
-  ) { }
+    private dataService: DataService,
+  ) {
+    this.empleados = this.dataService.empleados
+  }
 
   ngOnInit(): void {
     this.mergeObservables()
@@ -59,7 +54,7 @@ export class AppComponent {
   }
 
   agregarEmpleado(): void {
-    this.empleados.push(this.empleado)
+    this.dataService.agregarEmpleadoServicio(this.empleado)
     this.empleado = {
       nombre: '',
       apellido: '',

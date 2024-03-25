@@ -37,18 +37,18 @@ export class AppService {
     return this.http.get<User[]>(this.URL_USERS)
   }
 
-  public peticionApi1(): Observable<User> {
+  public get peticionApi1(): Observable<User> {
     return this.http.get<User>('https://jsonplaceholder.typicode.com/todos/1')
   }
 
-  public peticionApi2(): Observable<UserPlus> {
+  public get peticionApi2(): Observable<UserPlus> {
     return this.http.get<UserPlus>('https://jsonplaceholder.typicode.com/users/1')
   }
 
   public mergeObservables(): Observable<UserFork> {
     return forkJoin({
-      api_1: this.peticionApi1(),
-      api_2: this.peticionApi2(),
+      api_1: this.peticionApi1,
+      api_2: this.peticionApi2,
     })
   }
 }

@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component'
 import { EmpleadoHijoComponent } from './empleado-hijo/empleado-hijo.component'
 import { CaracteristicasEmpleadoComponent } from './caracteristicas-empleado/caracteristicas-empleado.component'
+import { ServicioEmpleadosService } from './servicio-empleados.service'
+import { DataService } from './data.service'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { CaracteristicasEmpleadoComponent } from './caracteristicas-empleado/car
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [ServicioEmpleadosService, DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
