@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody class="table-group-divider">
-        <tr *ngFor="let empleado of empleados; let i = index">
+        <tr *ngFor="let empleado of empleados; let i = index" title="Editar {{ empleado.nombre }}" routerLink="/edit-empleado/{{ i }}">
           <td>{{ i + 1 }}</td>
           <td>{{ empleado.nombre }}</td>
           <td>{{ empleado.apellido }}</td>
@@ -26,7 +26,7 @@
   </div>
   <!-- FORMULARIO -->
   <div class="w-25">
-    <form class="ms-5 d-flex flex-row align-items-center">
+    <form class="ms-5">
       <div class="d-flex flex-column">
         <div>
           <label for="nombre" class="form-label">Nombre</label>
@@ -61,6 +61,7 @@
   <app-empleado-hijo *ngFor="let empleado of empleados; let i = index" [empleadoFilaTabla]="empleado" [indiceFilaTabla]="i"></app-empleado-hijo>
 </div>
 
+<!-- PETICIONES MEDIANTE RXJS -->
 <div class="api container mt-5">
   <h2>Pruebas RXJS: 'subscribe' desde el html</h2>
   <h3>Pokemon Api</h3>

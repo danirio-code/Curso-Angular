@@ -1,11 +1,11 @@
 
-<div class="row ms-2 d-flex flex-row">
-  {{ indiceFilaTabla + 1 }} 
-  : {{ empleadoFilaTabla.nombre }} 
+<div class="ms-2 d-flex flex-row">
+  {{ indiceFilaTabla + 1 }}
+  <span title="Editar {{ empleadoFilaTabla.nombre }}" routerLink="/edit-empleado/{{ indiceFilaTabla }}">: {{ empleadoFilaTabla.nombre }}</span>
   - {{ empleadoFilaTabla.apellido }} 
   - {{ empleadoFilaTabla.cargo }} 
   - {{ empleadoFilaTabla.salario }}
-  -  <app-caracteristicas-empleado (caracteristicasEmpleado)="agregarCaracteristica($event)" class="w-50"></app-caracteristicas-empleado>
+  - <app-caracteristicas-empleado (caracteristicasEmpleado)="agregarCaracteristica($event)" class="w-50"></app-caracteristicas-empleado>
 </div>
 <div>
   <ul>

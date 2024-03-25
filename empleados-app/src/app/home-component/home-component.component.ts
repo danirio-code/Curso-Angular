@@ -22,6 +22,8 @@ export class HomeComponentComponent implements OnInit {
     salario: 0,
   }
 
+  empleados: Empleado[]
+
   pokemonApiContent: Observable<String> = this.homeService.peticionApiPokemon()
 
   pokemonName = ''
@@ -29,8 +31,6 @@ export class HomeComponentComponent implements OnInit {
   usersApiContent: Observable<User[]> = this.homeService.peticionApiUsers()
 
   mergedObservables = this.homeService.mergeObservables()
-
-  empleados: Empleado[]
 
   // existe: BehaviorSubject<string> = new BehaviorSubject('true')
 

@@ -20,4 +20,13 @@ export class DataService {
     this.servicioVentanaEmergente.mostrarMensaje(`Empleado añadido: ${empleado.nombre} ${empleado.apellido}`)
     this.empleados.push(empleado)
   }
+
+  encontrarEmpleado(indice: number): Empleado {
+    return this.empleados[indice]
+  }
+
+  actualizarEmpleadoService(index: number, empleado: Empleado): void {
+    // this.servicioVentanaEmergente.mostrarMensaje(`Empleado actualizado: ${empleado.nombre} ${empleado.apellido}`)
+    this.empleados[index] = empleado
+  }
 }

@@ -13,6 +13,7 @@ import { HomeComponentComponent } from './home-component/home-component.componen
 import { ProyectosComponentComponent } from './proyectos-component/proyectos-component.component'
 import { QuienesComponentComponent } from './quienes-component/quienes-component.component'
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component'
+import { EditEmpleadoComponentComponent } from './edit-empleado-component/edit-empleado-component.component'
 
 const appRoutes: Routes = [
   {
@@ -31,6 +32,10 @@ const appRoutes: Routes = [
     path: 'contacto',
     component: ContactoComponentComponent,
   },
+  {
+    path: 'edit-empleado/:id',
+    component: EditEmpleadoComponentComponent,
+  },
 ]
 
 @NgModule({
@@ -42,6 +47,7 @@ const appRoutes: Routes = [
     ProyectosComponentComponent,
     QuienesComponentComponent,
     ContactoComponentComponent,
+    EditEmpleadoComponentComponent,
   ],
   imports: [
     BrowserModule,
