@@ -1,7 +1,9 @@
 import { Component } from '@angular/core'
 // import { BehaviorSubject, timer  } from 'rxjs'
+import { Observable } from 'rxjs'
 import { AppService } from './app.service'
 import { Empleado } from './empleado.model'
+// import { Pokemon } from './pokemon-data'
 
 @Component({
   selector: 'app-root',
@@ -18,7 +20,9 @@ export class AppComponent {
     salario: 0,
   }
 
-  apiContent = ''
+  apiContent: Observable<String> = this.appService.peticionApi()
+
+  pokemonName = ''
 
   empleados: Empleado[] = [
     new Empleado('Dani', 'Río', 'Desarrollador Junior', 1000),
@@ -27,8 +31,6 @@ export class AppComponent {
     new Empleado('Juan', 'Pérez', 'Desarrollador Senior', 3000),
   ]
 
-  URL = 'https://www.newblue.es/i18n/es_ES'
-
   // existe: BehaviorSubject<string> = new BehaviorSubject('true')
 
   constructor(
@@ -36,7 +38,7 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getApiContent()
+    // this.getApiContent()
 
     // EXPLICACION DE CARLOS SOBRE COMO FUNCIONA RXJS
     // this.existe.subscribe(data => console.log(data))
@@ -57,11 +59,12 @@ export class AppComponent {
     }
   }
 
-  getApiContent(): void {
-    this.appService
-      .peticionApi()
-      .subscribe(data => {
-        this.apiContent = JSON.stringify(data)
-      })
-  }
+  // getApiContent(): void {
+  //   this.appService
+  //     .peticionApi()
+  //     .subscribe(data => {
+  //       this.pokemonName = data
+  //       console.log(this.pokemonName)
+  //     })
+  // }
 }

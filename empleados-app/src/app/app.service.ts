@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core'
-import { Observable } from 'rxjs'
+import {
+  Observable, delay, map, tap,
+} from 'rxjs'
 import { HttpClient } from '@angular/common/http'
+import { Pokemon } from './pokemon-data'
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +18,15 @@ export class AppService {
     public http: HttpClient,
   ) { }
 
-  public peticionApi(): Observable<Object> {
-    return this.http.get<Object>(this.URL)
+  // Probando operators rxjs
+  public peticionApi(): Observable<string> {
+    return this.http.get<Pokemon>(this.URL)
+      .pipe(
+        tap((data: Pokemon) => console.log(data)),
+        map((data: Pokemon) => data.name),
+        delay(5000),
+        tap((data: string) => console.log(data)),
+        map((data: string) => `Pokemon: ${data.toUpperCase()}`),
+      )
   }
 }

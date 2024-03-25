@@ -61,6 +61,9 @@
   <app-empleado-hijo *ngFor="let empleado of empleados; let i = index" [empleadoFilaTabla]="empleado" [indiceFilaTabla]="i"></app-empleado-hijo>
 </div>
 
-<!-- <div class="api">
-  {{ apiContent }}
-  </div> -->
+<div class="api container">
+  <h2>Pruebas RXJS: 'subscribe' desde el html</h2>
+  <div *ngIf="apiContent | async as Pokemon">
+    {{ Pokemon }}
+  </div>
+</div>
