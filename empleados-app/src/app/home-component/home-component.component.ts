@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component } from '@angular/core'
 // import { BehaviorSubject, timer  } from 'rxjs'
 import { Observable } from 'rxjs'
 import { HomeService } from './home-component.service'
@@ -12,7 +12,7 @@ import { EmpleadosDataService } from '../empleados-data.service'
   templateUrl: './home-component.component.html',
   styleUrls: ['./home-component.component.css'],
 })
-export class HomeComponentComponent implements OnInit {
+export class HomeComponentComponent {
   title = 'Listado de Empleados'
 
   empleado: Empleado = {

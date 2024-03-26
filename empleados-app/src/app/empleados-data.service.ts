@@ -36,13 +36,18 @@ export class EmpleadosDataService {
   actualizarEmpleadoService(index: number, empleado: Empleado): void {
     // this.servicioVentanaEmergente.mostrarMensaje(`Empleado actualizado: ${empleado.nombre} ${empleado.apellido}`)
     this.empleados[index] = empleado
+    this.fireBaseService.updateEmpleado(index, empleado)
   }
 
   eliminarEmpleadoService(index: number): void {
     if (this.servicioVentanaEmergente.confirmarEliminar(`
-    ¿Seguro que quieres eliminar a: ${this.empleados[index].nombre} ${this.empleados[index].apellido}?
-  `)) {
+      ¿Seguro que quieres eliminar a: ${this.empleados[index].nombre} ${this.empleados[index].apellido}?
+    `)) {
       this.empleados.splice(index, 1)
+      this.fireBaseService.deleteEmpleado(index)
+      if (this.empleados != null) {
+        this.fireBaseService.storeEmpleados(this.empleados)
+      }
     }
   }
 }

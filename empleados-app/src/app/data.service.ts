@@ -28,4 +28,28 @@ export class DataService {
   fetchEmpleados(): Observable<Empleado[]> {
     return this.http.get<Empleado[]>(`${this.fireBaseUrl}/empleados.json`)
   }
+
+  updateEmpleado(id: number, empleado: Empleado): void {
+    this.http.put(`${this.fireBaseUrl}/empleados/${id}.json`, empleado)
+      .subscribe({
+        next: data => {
+          console.log(`Se ha editado el empleado: ${data}`)
+        },
+        error: error => {
+          console.log(`Error al guardar el empleado: ${error}`)
+        },
+      })
+  }
+
+  deleteEmpleado(id: number): void {
+    this.http.delete(`${this.fireBaseUrl}/empleados/${id}.json`)
+      .subscribe({
+        next: data => {
+          console.log(`Se ha eliminado el empleado: ${data}`)
+        },
+        error: error => {
+          console.log(`Error al eliminar el empleado: ${error}`)
+        },
+      })
+  }
 }
