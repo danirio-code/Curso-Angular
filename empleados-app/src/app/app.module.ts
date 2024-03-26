@@ -14,6 +14,7 @@ import { ProyectosComponentComponent } from './proyectos-component/proyectos-com
 import { QuienesComponentComponent } from './quienes-component/quienes-component.component'
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component'
 import { EditEmpleadoComponentComponent } from './edit-empleado-component/edit-empleado-component.component'
+import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component'
 
 const appRoutes: Routes = [
   {
@@ -36,6 +37,11 @@ const appRoutes: Routes = [
     path: 'edit-empleado/:id',
     component: EditEmpleadoComponentComponent,
   },
+  // ** significa que cualquier otra ruta que no esté definida en la lista de rutas
+  {
+    path: '**',
+    component: ErrorPersonalizadoComponent,
+  },
 ]
 
 @NgModule({
@@ -48,6 +54,7 @@ const appRoutes: Routes = [
     QuienesComponentComponent,
     ContactoComponentComponent,
     EditEmpleadoComponentComponent,
+    ErrorPersonalizadoComponent,
   ],
   imports: [
     BrowserModule,
