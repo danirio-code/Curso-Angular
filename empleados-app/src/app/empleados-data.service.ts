@@ -4,7 +4,7 @@ import { ServicioEmpleadosService } from './servicio-empleados.service'
 
 @Injectable()
 
-export class DataService {
+export class EmpleadosDataService {
   empleados: Empleado[] = [
     new Empleado('Dani', 'Río', 'Desarrollador Junior', 1000),
     new Empleado('María', 'González', 'Diseñador', 2000),

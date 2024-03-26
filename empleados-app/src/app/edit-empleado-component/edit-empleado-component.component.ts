@@ -1,7 +1,7 @@
 /* eslint-disable dot-notation */
 import { Component } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
-import { DataService } from '../data.service'
+import { EmpleadosDataService } from '../empleados-data.service'
 import { Empleado } from '../data/empleado.model'
 
 @Component({
@@ -26,7 +26,7 @@ export class EditEmpleadoComponentComponent {
 
   constructor(
     private router: Router,
-    private dataService: DataService,
+    private dataService: EmpleadosDataService,
     private activatedRoute: ActivatedRoute,
   ) {
     this.empleados = this.dataService.empleados

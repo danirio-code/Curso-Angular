@@ -4,7 +4,7 @@ import { Observable } from 'rxjs'
 import { HomeService } from './home-component.service'
 import { Empleado } from '../data/empleado.model'
 import { User } from '../data/users-data'
-import { DataService } from '../data.service'
+import { EmpleadosDataService } from '../empleados-data.service'
 // import { Pokemon } from '../pokemon-data'
 
 @Component({
@@ -36,7 +36,7 @@ export class HomeComponentComponent implements OnInit {
 
   constructor(
     public homeService: HomeService,
-    private dataService: DataService,
+    private dataService: EmpleadosDataService,
   ) {
     this.empleados = this.dataService.empleados
   }

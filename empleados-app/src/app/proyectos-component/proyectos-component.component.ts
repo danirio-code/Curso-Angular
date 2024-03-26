@@ -1,6 +1,6 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
-import { DataService } from '../data.service'
+import { EmpleadosDataService } from '../empleados-data.service'
 import { Empleado } from '../data/empleado.model'
 
 @Component({
@@ -20,7 +20,7 @@ export class ProyectosComponentComponent {
 
   constructor(
     private router: Router,
-    private dataService: DataService,
+    private dataService: EmpleadosDataService,
   ) {
     this.empleados = this.dataService.empleados
   }
