@@ -22,7 +22,7 @@ export class HomeComponentComponent implements OnInit {
     salario: 0,
   }
 
-  empleados: Empleado[]
+  empleados: Empleado[] = []
 
   pokemonApiContent: Observable<String> = this.homeService.peticionApiPokemon()
 
@@ -37,12 +37,15 @@ export class HomeComponentComponent implements OnInit {
   constructor(
     public homeService: HomeService,
     private dataService: EmpleadosDataService,
-  ) {
-    this.empleados = this.dataService.empleados
-  }
+  ) { }
 
   ngOnInit(): void {
     this.mergeObservables()
+
+    this.dataService.obtenerEmpleados().subscribe(data => {
+      this.empleados = data
+      this.dataService.setEmpleados(data)
+    })
 
     // EXPLICACION DE CARLOS SOBRE COMO FUNCIONA RXJS
     // this.existe.subscribe(data => console.log(data))

@@ -15,6 +15,7 @@ import { QuienesComponentComponent } from './quienes-component/quienes-component
 import { ContactoComponentComponent } from './contacto-component/contacto-component.component'
 import { EditEmpleadoComponentComponent } from './edit-empleado-component/edit-empleado-component.component'
 import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component'
+import { DataService } from './data.service'
 
 const appRoutes: Routes = [
   {
@@ -62,7 +63,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [ServicioEmpleadosService, EmpleadosDataService],
+  providers: [ServicioEmpleadosService, EmpleadosDataService, DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
