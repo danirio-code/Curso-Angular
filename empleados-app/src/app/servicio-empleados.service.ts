@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import { Injectable } from '@angular/core'
 
 @Injectable({
@@ -8,5 +9,10 @@ export class ServicioEmpleadosService {
 
   mostrarMensaje(mensaje: string): void {
     alert(mensaje)
+  }
+
+  confirmarEliminar(mensaje: string): boolean {
+    // eslint-disable-next-line no-restricted-globals
+    return confirm(mensaje)
   }
 }

@@ -22,9 +22,15 @@
         <input [(ngModel)]="empleado.salario" type="number" class="form-control" id="salario" name="salario">
       </div>
     </div>
-    <div class="text-center mt-4">
-      <button (click)="actualizarEmpleado()" class="btn btn-primary">Editar Empleado</button>
+    <div class="botones mt-4 d-flex flex-row gap-3 justify-content-center">
+      <div>
+        <button (click)="actualizarEmpleado()" class="btn btn-primary">Editar Empleado</button>
+      </div>
+      <div>
+        <button (click)="eliminarEmpleado()" class="btn btn-danger">Eliminar Empleado</button>
+      </div>
     </div>
+    
   </form>
 </div>
 <div class="container mt-5">

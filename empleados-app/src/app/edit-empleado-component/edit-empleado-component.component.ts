@@ -49,4 +49,9 @@ export class EditEmpleadoComponentComponent {
     }
     this.volverHome()
   }
+
+  eliminarEmpleado(): void {
+    this.dataService.eliminarEmpleadoService(this.indice)
+    this.volverHome()
+  }
 }

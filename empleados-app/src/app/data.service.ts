@@ -29,4 +29,12 @@ export class DataService {
     // this.servicioVentanaEmergente.mostrarMensaje(`Empleado actualizado: ${empleado.nombre} ${empleado.apellido}`)
     this.empleados[index] = empleado
   }
+
+  eliminarEmpleadoService(index: number): void {
+    if (this.servicioVentanaEmergente.confirmarEliminar(`
+    ¿Seguro que quieres eliminar a: ${this.empleados[index].nombre} ${this.empleados[index].apellido}?
+  `)) {
+      this.empleados.splice(index, 1)
+    }
+  }
 }
