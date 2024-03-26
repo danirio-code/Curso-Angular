@@ -23,10 +23,10 @@
       </div>
     </div>
     <div class="botones mt-4 d-flex flex-row gap-3 justify-content-center">
-      <div>
+      <div *ngIf="action === 'edit'">
         <button (click)="actualizarEmpleado()" class="btn btn-primary">Editar Empleado</button>
       </div>
-      <div>
+      <div *ngIf="action === 'delete'">
         <button (click)="eliminarEmpleado()" class="btn btn-danger">Eliminar Empleado</button>
       </div>
     </div>

@@ -11,15 +11,27 @@
           <th scope="col">APELLIDO</th>
           <th scope="col">CARGO</th>
           <th scope="col">SALARIO</th>
+          <th scope="col">EDITAR</th>
+          <th scope="col">ELIMINAR</th>
         </tr>
       </thead>
       <tbody class="table-group-divider">
-        <tr *ngFor="let empleado of empleados; let i = index" title="Editar {{ empleado.nombre }}" routerLink="/edit-empleado/{{ i }}">
+        <tr *ngFor="let empleado of empleados; let i = index">
           <td>{{ i + 1 }}</td>
           <td>{{ empleado.nombre }}</td>
           <td>{{ empleado.apellido }}</td>
           <td>{{ empleado.cargo }}</td>
           <td>{{ empleado.salario }}</td>
+          <td class="text-center">
+            <a [routerLink]="['/edit-empleado', i]" [queryParams]="{action:'edit'}">
+              <i class="fa-regular fa-pen-to-square text-warning"></i>
+            </a>
+          </td>
+          <td class="text-center ">
+            <a [routerLink]="['/edit-empleado', i]" [queryParams]="{action:'delete'}">
+              <i class="fa-solid fa-trash-can text-danger"></i>
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>

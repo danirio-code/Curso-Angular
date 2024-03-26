@@ -1,11 +1,18 @@
 
-<div class="ms-2 d-flex flex-row">
+<div class="ms-2">
   {{ indiceFilaTabla + 1 }}
-  <span title="Editar {{ empleadoFilaTabla.nombre }}" routerLink="/edit-empleado/{{ indiceFilaTabla }}">: {{ empleadoFilaTabla.nombre }}</span>
+  : {{ empleadoFilaTabla.nombre }}
   - {{ empleadoFilaTabla.apellido }} 
   - {{ empleadoFilaTabla.cargo }} 
   - {{ empleadoFilaTabla.salario }}
-  - <app-caracteristicas-empleado (caracteristicasEmpleado)="agregarCaracteristica($event)" class="w-50"></app-caracteristicas-empleado>
+
+  <a [routerLink]="['/edit-empleado', indiceFilaTabla]" [queryParams]="{action:'edit'}" class="ms-3">
+    Editar
+  </a>
+  <a [routerLink]="['/edit-empleado', indiceFilaTabla]" [queryParams]="{action:'delete'}" class="ms-3">
+    Eliminar
+  </a>
+  <app-caracteristicas-empleado (caracteristicasEmpleado)="agregarCaracteristica($event)" class="w-50"></app-caracteristicas-empleado>
 </div>
 <div>
   <ul>

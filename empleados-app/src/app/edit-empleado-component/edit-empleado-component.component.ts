@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 import { Component } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router'
 import { DataService } from '../data.service'
@@ -21,6 +22,8 @@ export class EditEmpleadoComponentComponent {
 
   indice: number
 
+  action: string
+
   constructor(
     private router: Router,
     private dataService: DataService,
@@ -30,8 +33,8 @@ export class EditEmpleadoComponentComponent {
   }
 
   ngOnInit(): void {
-    // eslint-disable-next-line dot-notation
     this.indice = this.activatedRoute.snapshot.params['id']
+    this.action = this.activatedRoute.snapshot.queryParams['action']
     this.empleado = this.dataService.encontrarEmpleado(this.indice)
   }
 
