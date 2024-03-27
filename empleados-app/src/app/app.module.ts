@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { RouterModule, Routes } from '@angular/router'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { CookieService } from 'ngx-cookie-service'
 import { AppComponent } from './app.component'
 import { EmpleadoHijoComponent } from './empleado-hijo/empleado-hijo.component'
 import { CaracteristicasEmpleadoComponent } from './caracteristicas-empleado/caracteristicas-empleado.component'
@@ -16,6 +18,9 @@ import { ContactoComponentComponent } from './contacto-component/contacto-compon
 import { EditEmpleadoComponentComponent } from './edit-empleado-component/edit-empleado-component.component'
 import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component'
 import { DataService } from './data.service'
+import { LoginComponent } from './login/login.component'
+import { LoginService } from './login/login.service'
+import { LoginGuard } from './login/login-guard'
 
 const appRoutes: Routes = [
   {
@@ -33,10 +38,15 @@ const appRoutes: Routes = [
   {
     path: 'contacto',
     component: ContactoComponentComponent,
+    canActivate: [LoginGuard],
   },
   {
     path: 'edit-empleado/:id',
     component: EditEmpleadoComponentComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
   // ** significa que cualquier otra ruta que no esté definida en la lista de rutas
   {
@@ -56,6 +66,7 @@ const appRoutes: Routes = [
     ContactoComponentComponent,
     EditEmpleadoComponentComponent,
     ErrorPersonalizadoComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +74,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [ServicioEmpleadosService, EmpleadosDataService, DataService],
+  providers: [ServicioEmpleadosService, EmpleadosDataService, DataService, LoginService, CookieService, LoginGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

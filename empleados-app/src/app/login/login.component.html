@@ -1,0 +1,20 @@
+<div class="d-flex flex-column align-items-center">
+  <div class="w-25">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="m-5">
+      <div class="d-flex flex-column gap-4">
+        <div>
+          <label for="email" class="form-label">Email</label>
+          <input ngModel type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com">
+        </div>
+        <div>
+          <label for="password" class="form-label">Conraseña</label>
+          <input ngModel type="password" class="form-control" id="password" name="password" placeholder="********">
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>

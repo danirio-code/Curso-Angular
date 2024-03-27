@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
 import { Empleado } from './data/empleado.model'
+import { LoginService } from './login/login.service'
 
 @Injectable()
 
@@ -11,13 +12,16 @@ export class DataService {
 
   constructor(
     private http: HttpClient,
+    private loginService: LoginService,
   ) { }
 
   storeEmpleados(empleados: Empleado[]): void {
-    this.http.put(`${this.fireBaseUrl}/empleados.json`, empleados)
+    const token = this.loginService.getIdToken()
+    this.http.put(`${this.fireBaseUrl}/empleados.json?auth=${token}`, empleados)
       .subscribe({
         next: data => {
           console.log(`Se ha guardado los empleados: ${data}`)
+          window.location.reload()
         },
         error: error => {
           console.log(`Error al guardar los empleados: ${error}`)
@@ -26,14 +30,17 @@ export class DataService {
   }
 
   fetchEmpleados(): Observable<Empleado[]> {
-    return this.http.get<Empleado[]>(`${this.fireBaseUrl}/empleados.json`)
+    const token = this.loginService.getIdToken()
+    return this.http.get<Empleado[]>(`${this.fireBaseUrl}/empleados.json?auth=${token}`)
   }
 
   updateEmpleado(id: number, empleado: Empleado): void {
-    this.http.put(`${this.fireBaseUrl}/empleados/${id}.json`, empleado)
+    const token = this.loginService.getIdToken()
+    this.http.put(`${this.fireBaseUrl}/empleados/${id}.json?auth=${token}`, empleado)
       .subscribe({
         next: data => {
           console.log(`Se ha editado el empleado: ${data}`)
+          window.location.reload()
         },
         error: error => {
           console.log(`Error al guardar el empleado: ${error}`)
@@ -42,10 +49,12 @@ export class DataService {
   }
 
   deleteEmpleado(id: number): void {
-    this.http.delete(`${this.fireBaseUrl}/empleados/${id}.json`)
+    const token = this.loginService.getIdToken()
+    this.http.delete(`${this.fireBaseUrl}/empleados/${id}.json?auth=${token}`)
       .subscribe({
         next: data => {
           console.log(`Se ha eliminado el empleado: ${data}`)
+          window.location.reload()
         },
         error: error => {
           console.log(`Error al eliminar el empleado: ${error}`)
